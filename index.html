@@ -1,2 +1,661 @@
-<h1>Welcome Habibi</h1>
-<h1>Coming soon</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Forgetting Arabic Vocabulary - Quranic Arabic Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
+            line-height: 1.7;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin: 4rem 0 2rem 0;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 600;
+            margin: 3rem 0 1.5rem 0;
+            color: #f0f0f0;
+            letter-spacing: -0.01em;
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            margin-bottom: 4rem;
+            color: #b0b0b0;
+            font-weight: 400;
+            line-height: 1.5;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        p {
+            margin-bottom: 2rem;
+            color: #d0d0d0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Interactive Elements */
+        .highlight {
+            color: #22d3ee;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: default;
+            position: relative;
+        }
+
+        .highlight:hover {
+            color: #67e8f9;
+            text-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+        }
+
+        /* Cards and Sections */
+        .problem-text {
+            background: linear-gradient(135deg, #1a0a0a, #2a0f0f);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #ff4444;
+            margin: 3rem 0;
+            box-shadow: 0 8px 32px rgba(255, 68, 68, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-text:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff4444, #ff6b6b);
+        }
+
+        .problem-text:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(255, 68, 68, 0.2);
+        }
+
+        .solution-text {
+            background: linear-gradient(135deg, #0a1a0a, #0f2a0f);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #22d3ee;
+            margin: 3rem 0;
+            box-shadow: 0 8px 32px rgba(34, 211, 238, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-text:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #22d3ee, #67e8f9);
+        }
+
+        .solution-text:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(34, 211, 238, 0.2);
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #1a1a1a, #252525);
+            padding: 4rem;
+            border-radius: 24px;
+            margin: 4rem 0;
+            border: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .story-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.05), rgba(168, 85, 247, 0.05));
+            pointer-events: none;
+        }
+
+        .story-section:hover {
+            transform: scale(1.01);
+            border-color: #22d3ee;
+            box-shadow: 0 20px 60px rgba(34, 211, 238, 0.1);
+        }
+
+        /* Lists */
+        .benefits-list {
+            list-style: none;
+            margin: 2.5rem 0;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .benefits-list li {
+            padding: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a1a, #202020);
+            border-radius: 12px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .benefits-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #22d3ee;
+            font-weight: bold;
+            font-size: 1.4rem;
+            animation: pulse 2s infinite;
+        }
+
+        .benefits-list li:hover {
+            transform: translateX(10px);
+            border-color: #22d3ee;
+            background: linear-gradient(135deg, #1a2a2a, #252525);
+        }
+
+        /* Objection Sections */
+        .objection-section {
+            background: linear-gradient(135deg, #1a1a1a, #232323);
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 2.5rem 0;
+            border: 1px solid #404040;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .objection-section:hover {
+            border-color: #22d3ee;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(34, 211, 238, 0.15);
+        }
+
+        .objection-title {
+            color: #ff6b6b;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 5rem 4rem;
+            border-radius: 24px;
+            text-align: center;
+            margin: 5rem 0;
+            border: 1px solid #374151;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(34, 211, 238, 0.1), rgba(168, 85, 247, 0.1));
+            pointer-events: none;
+        }
+
+        .email-form {
+            max-width: 500px;
+            margin: 3rem auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            font-size: 1.2rem;
+            border: 2px solid #374151;
+            border-radius: 12px;
+            background: rgba(31, 41, 55, 0.8);
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #22d3ee;
+            box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
+            transform: scale(1.02);
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #22d3ee, #06b6d4);
+            color: #000000;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(34, 211, 238, 0.4);
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        .trust-text {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .stats-highlight {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #92400e;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            box-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .stats-highlight:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .story-section, .cta-section {
+                padding: 2.5rem;
+            }
+
+            .objection-section {
+                padding: 2rem;
+            }
+
+            .benefits-list li {
+                padding: 1.2rem;
+                padding-left: 2.5rem;
+            }
+
+            .email-input, .cta-button {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #22d3ee, #06b6d4);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Why Arabic Students Forget 90% of Their Vocabulary (And How to Fix It)</h1>
+            <p class="subtitle">The science-backed method that made me sound like a native speaker in one year - and had my classmates asking for my secret</p>
+        </header>
+
+        <section class="fade-in">
+            <h2>You're Studying Arabic Wrong (And It's Not Your Fault)</h2>
+            <p>You're working through Madinah books. Taking classes. Reviewing vocab lists.</p>
+            <p>But here's what's happening in your brain:</p>
+            
+            <div class="problem-text">
+                <strong>You learn 20 new Arabic words → Review them a few times → Feel confident → Test yourself a week later → Remember maybe 2 words</strong>
+            </div>
+            
+            <p>Sound familiar? You're not stupid. You're not lazy. <span class="highlight">You're using methods that work against how your brain actually learns.</span></p>
+        </section>
+
+        <section class="story-section fade-in">
+            <h2>How I Went From Beginner to "You've Been Studying for Less Than a Year? How Are You So Good?"</h2>
+            
+            <p><strong>Let me tell you what happened in my Arabic class...</strong></p>
+            
+            <p>My classmates and I would practice vocabulary together. They'd struggle to remember words they studied the night before. I never got a single word wrong.</p>
+            
+            <p>"You've been studying for less than a year? How are you so good?" they'd ask. "How did you get so fluent?"</p>
+            
+            <p><strong>The funny thing?</strong> I wasn't even fluent yet. But compared to where we all started, my progress was dramatically different.</p>
+            
+            <p><strong>My secret?</strong> I wasn't cramming vocabulary lists. I was using flashcards with spaced repetition.</p>
+            
+            <p><strong>But here's what broke my heart...</strong></p>
+            
+            <p>Many of my classmates - people I started with, and even some who had been in the course before me - began to struggle. They had amassed so much vocabulary that they couldn't keep up with their reviews anymore. Some developed anxiety around Arabic study. Others got completely overwhelmed and had to take breaks from the course.</p>
+            
+            <p><strong>I literally couldn't relate.</strong> While they were drowning in forgotten words, the spaced repetition algorithm was managing everything for me. I didn't have to worry about what to review or when - the system handled it all.</p>
+            
+            <p><strong>But here's where it gets interesting...</strong></p>
+            
+            <p>When I started learning full sentences instead of isolated words - English on the front, Arabic with native audio on the back - something incredible happened.</p>
+            
+            <p><strong>Within one year:</strong></p>
+            <ul class="benefits-list">
+                <li>My pronunciation sounded so natural that <strong>native Arabic speakers in my class were impressed</strong></li>
+                <li>Classmates constantly asked me to share my methods</li>
+                <li>People who had been studying longer than me were asking for my secrets</li>
+            </ul>
+            
+            <p><strong>The difference?</strong> I wasn't just memorizing words. I was training my brain the way it actually learns.</p>
+            
+            <p><strong>And I wasn't the first to discover this...</strong> This exact method helped Khatzumoto reach a high level of Japanese in just two years. If it works for one of the world's most challenging languages, imagine what it can do for your Arabic.</p>
+        </section>
+
+        <section class="fade-in">
+            <h2>The Hidden Science That Changes Everything</h2>
+            
+            <p><strong>Here's what Arabic teachers don't tell you:</strong></p>
+            
+            <p>When you reread vocabulary lists, information slides through your brain like water through a sieve. But when you force yourself to RECALL information from memory, something magical happens.</p>
+            
+            <div class="solution-text">
+                <p><strong>Studies prove:</strong> Students who practiced retrieval (testing themselves) retained <span class="stats-highlight">50% more information after one week</span> compared to those who simply reread material.</p>
+            </div>
+            
+            <p>Think of it like this: Rereading is like eating spaghetti with a spoon - messy and ineffective. But active recall? That's like eating with a fork. The information <strong>intertwines and wraps itself</strong> around your memory, creating permanent neural pathways.</p>
+
+            <h3>But Wait - There's Something Even More Powerful</h3>
+            
+            <p><strong>Spaced Repetition:</strong> The review of information at increasing time intervals.</p>
+            
+            <p>Instead of reviewing Arabic words every day (exhausting and ineffective), you review them on day 1, day 3, day 7, then after 3 weeks.</p>
+            
+            <p><strong>Why the gaps?</strong> Because forgetting and then remembering creates STRONGER memories. It's like working out a muscle - the struggle makes it stronger.</p>
+            
+            <div class="solution-text">
+                <p><strong>The research is staggering:</strong> Spaced repetition improves long-term retention by <span class="stats-highlight">up to 200%</span> while reducing total study time by <span class="stats-highlight">30-50%</span>.</p>
+                <p><em>Source: "Make It Stick: The Science of Successful Learning" - the gold standard research on memory</em></p>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>Your Arabic Teacher Is Making You Work 25x Harder Than Necessary</h2>
+            
+            <p><strong>Here's something that will blow your mind:</strong></p>
+            
+            <p>Many Arabic teachers tell students to repeat each word <span class="stats-highlight">500 times.</span> I'm not joking. Five hundred. Some say 200. Even the "easy" lists require 50 repetitions per word.</p>
+            
+            <p><strong>With flashcards and spaced repetition?</strong> You'll see the same word maybe 10-20 times total, spread over months, and remember it permanently.</p>
+            
+            <div class="solution-text">
+                <p><strong>Do the math:</strong> 500 repetitions vs. 15 repetitions for the same result.</p>
+                <p><strong>That's 25 times more efficient.</strong> No wonder my classmates got overwhelmed and developed anxiety.</p>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>But Let Me Address Your Concerns...</h2>
+            
+            <div class="objection-section">
+                <div class="objection-title">"But I'm Already Overwhelmed - This Sounds Like More Work"</div>
+                <p><strong>Actually, it's the opposite.</strong></p>
+                <p>Here's the beautiful truth: Instead of studying Arabic vocabulary for 30 days straight, you study it for just 4 strategic days and remember it FOREVER.</p>
+                <p><strong>Translation:</strong> Less time studying. Better results. More time for grammar, reading, and actually enjoying Arabic.</p>
+                <p><strong>I learned this the hard way.</strong> While my classmates spent hours rereading vocabulary lists, I spent 15 minutes with my flashcards and outperformed everyone. The efficiency was almost embarrassing.</p>
+            </div>
+
+            <div class="objection-section">
+                <div class="objection-title">"Okay, But I'm Not a Memory Expert"</div>
+                <p><strong>Neither was I when I started.</strong></p>
+                <p>I was just another beginner in Arabic class, struggling like everyone else. The only difference? I stumbled onto these techniques and decided to try them.</p>
+                <p><strong>The result?</strong> My classmates started asking to borrow my flashcards. Native speakers complimented my pronunciation. Teachers noticed my progress.</p>
+                <p><strong>You don't need to be special. You just need the right system.</strong></p>
+            </div>
+
+            <div class="objection-section">
+                <div class="objection-title">"I've Tried Flashcards Before - They're Boring and Don't Work"</div>
+                <p><strong>I thought the same thing until I discovered sentence-based learning.</strong></p>
+                
+                <div class="problem-text">
+                    <p><strong>Old way (doesn't work):</strong></p>
+                    <p>• Front: كتاب<br>
+                    • Back: book<br>
+                    • Result: You memorize isolated words but can't understand sentences</p>
+                </div>
+                
+                <div class="solution-text">
+                    <p><strong>New way (works like magic):</strong></p>
+                    <p>• Front: "And We revealed to you the Book with truth"<br>
+                    • Back: <em>"وَأَنزَلْنَا إِلَيْكَ الْكِتَابَ بِالْحَقِّ"</em> (with native audio)<br>
+                    • Result: You learn "كتاب" as it appears in the Quran, understand context, hear proper pronunciation</p>
+                </div>
+                
+                <p><strong>This is exactly how I went from sounding like a textbook to sounding natural.</strong> The sentences teach you rhythm, flow, and real usage.</p>
+            </div>
+
+            <div class="objection-section">
+                <div class="objection-title">"What If I Don't Have Time to Make Flashcards?"</div>
+                <p><strong>Perfect - neither do I.</strong></p>
+                <p>Creating quality flashcards from Arabic texts takes FOREVER. Finding the right sentences, adding audio, making sure the translations are accurate...</p>
+                <p><strong>That's exactly why I built this system.</strong> I got tired of spending more time making flashcards than actually learning.</p>
+                <ul class="benefits-list">
+                    <li>Pre-made cards from Quranic verses and Islamic texts</li>
+                    <li>Professional native audio already added</li>
+                    <li>Sentences already selected for maximum learning impact</li>
+                    <li>Zero setup time - just start learning</li>
+                </ul>
+            </div>
+
+            <div class="objection-section">
+                <div class="objection-title">"What If I'm Too Busy to Study Daily?"</div>
+                <p><strong>This system is designed for busy people.</strong></p>
+                <p><span class="highlight">15 minutes a day.</span> That's all I spent, and it was enough to outpace classmates who studied for hours.</p>
+                <p><strong>But here's the beautiful part:</strong> The spaced repetition algorithm adapts to YOUR schedule. Miss a day? No problem. The system adjusts. Going on vacation? It waits for you.</p>
+                <p><strong>Compare that to:</strong> Traditional methods where missing even a few days means forgetting everything and starting over.</p>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>What You Get (Free Access)</h2>
+            <ul class="benefits-list">
+                <li><strong>Pre-made vocabulary cards</strong> from Quranic verses and authentic Islamic texts</li>
+                <li><strong>Native Arabic audio</strong> for every word and sentence</li>
+                <li><strong>Science-based spaced repetition</strong> calculated automatically</li>
+                <li><strong>Progress tracking</strong> that shows your vocabulary growth</li>
+                <li><strong>Contextual learning</strong> through real Islamic sentences</li>
+                <li><strong>15 minutes daily</strong> for maximum retention with minimum time</li>
+                <li><strong>Cloud sync</strong> - access from any device</li>
+                <li><strong>Zero setup</strong> - just create account and start learning</li>
+            </ul>
+        </section>
+
+        <section class="cta-section fade-in">
+            <h2>The Bottom Line</h2>
+            <p><strong>You have two choices:</strong></p>
+            
+            <div class="problem-text">
+                <p><strong>1. Keep doing what you're doing:</strong> Forget 90% of vocabulary, feel frustrated, watch classmates quit or develop anxiety, progress slowly</p>
+            </div>
+            
+            <div class="solution-text">
+                <p><strong>2. Use the method that worked for me:</strong> Remember vocabulary permanently, understand Arabic naturally, progress rapidly while others struggle</p>
+            </div>
+            
+            <p><strong>I went from struggling beginner to impressing native speakers in one year. Not because I'm special, but because I used the right method.</strong></p>
+            
+            <p>The same method used by successful language learners worldwide. The same method backed by cognitive science research. The same method that can transform your Arabic studies.</p>
+            
+            <h3 style="color: #ffffff; margin-top: 3rem;">Ready to Finally Remember Arabic Vocabulary?</h3>
+            
+            <!-- Substack Embed Form -->
+            <div class="email-form">
+                <iframe src="https://ummmujaahid.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:rgba(31, 41, 55, 0.8); border-radius:12px;" frameborder="0" scrolling="no"></iframe>
+            </div>
+            
+            <p class="trust-text">No credit card. No commitment. Just better Arabic learning.</p>
+        </section>
+    </div>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add smooth scroll for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('.highlight').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.transform = 'scale(1.05)';
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
