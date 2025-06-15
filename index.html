@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stop Forgetting Arabic Vocabulary - Umm Mujaahid</title>
+    <title>Stop Forgetting Arabic Vocabulary - Free Guide</title>
     <style>
         * {
             margin: 0;
@@ -16,557 +16,355 @@
             background: #ffffff;
             color: #000000;
             line-height: 1.6;
-            font-size: 18px;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #e5e5e5;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 3rem;
+            padding: 0 2rem;
         }
 
-        .brand-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #000000;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        /* Page 1 - Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
         }
 
-        .brand-name:hover {
-            color: #8b5cf6;
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        /* Sections */
-        .section {
-            padding: 6rem 0;
+        .hero-text {
+            max-width: 500px;
         }
 
-        .section-white {
-            background: #ffffff;
-        }
-
-        .section-purple {
-            background: #8b5cf6;
-            color: #ffffff;
-        }
-
-        .section-purple h2,
-        .section-purple h3,
-        .section-purple strong {
-            color: #ffffff;
-        }
-
-        .section-purple p {
-            color: #f3f0ff;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: #ffffff;
-            padding: 12rem 0 8rem 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 6vw, 4.5rem);
+        .headline {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 900;
-            margin-bottom: 2rem;
             line-height: 1.1;
+            margin-bottom: 1.5rem;
             color: #000000;
-            animation: fadeInUp 0.8s ease;
+            letter-spacing: -0.02em;
         }
 
-        .hero .subtitle {
-            font-size: 1.3rem;
+        .subheading {
+            font-size: 1.4rem;
             color: #666666;
             margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 0.8s ease 0.2s both;
+            line-height: 1.4;
+            font-weight: 400;
         }
 
-        /* Typography */
-        h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 800;
-            margin-bottom: 2rem;
+        .email-form {
+            background: #f8f8f8;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 2px solid #8b5cf6;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+        }
+
+        .form-title {
+            font-size: 1.3rem;
+            font-weight: 700;
             color: #000000;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
-        h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin: 3rem 0 1.5rem 0;
-            color: #000000;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            color: #333333;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        /* Interactive Cards */
-        .problem-card {
-            background: #f8f8f8;
-            padding: 3rem;
-            border-radius: 16px;
-            margin: 3rem 0;
-            border: 2px solid transparent;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-8px);
-            border-color: #8b5cf6;
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
-        }
-
-        .problem-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .email-input {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .problem-card:hover:before {
-            left: 100%;
-        }
-
-        /* Story Section */
-        .story-card {
-            background: #ffffff;
-            padding: 4rem;
-            border-radius: 20px;
-            margin: 4rem 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e5e5;
-            transition: all 0.3s ease;
-        }
-
-        .story-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.15);
-        }
-
-        /* Stats */
-        .stat {
-            background: #ffffff;
-            color: #8b5cf6;
-            padding: 0.5rem 1rem;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            border: 2px solid #e5e5e5;
             border-radius: 8px;
+            margin-bottom: 1rem;
+            background: #ffffff;
+            transition: border-color 0.3s ease;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            font-size: 1rem;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-            display: inline-block;
+            background: #8b5cf6;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: none;
+        }
+
+        .cta-button:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .trust-text {
+            text-align: center;
+            color: #666666;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ebook-mockup {
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            transform: perspective(600px) rotateY(-15deg);
             transition: transform 0.3s ease;
         }
 
-        .stat:hover {
-            transform: scale(1.1);
+        .ebook-mockup:hover {
+            transform: perspective(600px) rotateY(0deg);
         }
 
-        /* Benefits Grid */
+        .ebook-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .ebook-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* Page 2 - Benefits Section */
+        .benefits-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            background: #f8f8f8;
+        }
+
+        .benefits-content {
+            width: 100%;
+        }
+
+        .benefits-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #000000;
+        }
+
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
         }
 
         .benefit-card {
             background: #ffffff;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 2px solid #e5e5e5;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .benefit-card:hover {
-            border-color: #8b5cf6;
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.2);
+            border-color: #8b5cf6;
         }
 
-        .benefit-card:before {
-            content: "✓";
-            color: #8b5cf6;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             display: block;
         }
 
-        /* Comparison */
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin: 4rem 0;
-        }
-
-        .old-way {
-            background: #f8f8f8;
-            padding: 2.5rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .new-way {
-            background: #ffffff;
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 2px solid #8b5cf6;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .new-way:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.3);
-        }
-
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, #8b5cf6, #a855f7);
-            padding: 8rem 0;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .cta h2 {
-            color: #ffffff;
-            margin-bottom: 2rem;
-        }
-
-        .form-wrapper {
-            background: #ffffff;
-            padding: 3rem;
-            border-radius: 20px;
-            max-width: 500px;
-            margin: 3rem auto;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-            transform: translateY(0);
-            transition: all 0.3s ease;
-        }
-
-        .form-wrapper:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .form-title {
+        .benefit-title {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: #000000;
-            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-description {
+            color: #666666;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .final-cta {
+            text-align: center;
+            background: #8b5cf6;
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .final-cta h3 {
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
 
-        .form-subtitle {
-            color: #666666;
-            margin-bottom: 2rem;
+        .final-cta-button {
+            background: #ffffff;
+            color: #8b5cf6;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .substack-embed {
-            border: 1px solid #e5e5e5;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .final-cta-button:hover {
+            background: #f3f0ff;
+            transform: translateY(-2px);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-            
-            .nav-container {
-                padding: 0 1.5rem;
-            }
-            
-            .hero {
-                padding: 10rem 0 6rem 0;
-            }
-
-            .section {
-                padding: 4rem 0;
-            }
-
-            .comparison {
+            .hero-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
             }
 
             .benefits-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .story-card,
-            .form-wrapper {
+            .email-form {
                 padding: 2rem;
             }
+
+            .ebook-mockup {
+                width: 250px;
+                height: 320px;
+                transform: none;
+            }
         }
 
-        /* Highlight effect */
-        .highlight {
-            color: #8b5cf6;
-            font-weight: 600;
-            position: relative;
-        }
-
-        .highlight:hover {
-            cursor: pointer;
-        }
-
-        .highlight:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #8b5cf6;
-            transition: width 0.3s ease;
-        }
-
-        .highlight:hover:after {
-            width: 100%;
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="/" class="brand-name">Umm Mujaahid</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Page 1: Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <h1>Stop Forgetting Arabic Vocabulary</h1>
-            <p class="subtitle">The science-backed method that made me sound like a native speaker in one year</p>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="section section-white">
-        <div class="container">
-            <h2>You're Studying Arabic Wrong</h2>
-            
-            <div class="problem-card fade-in">
-                <p><strong>You learn 20 new Arabic words → Review them a few times → Feel confident → Test yourself a week later → Remember maybe 2 words</strong></p>
-            </div>
-            
-            <p>Sound familiar? You're not stupid. You're not lazy. <span class="highlight">You're using methods that work against how your brain actually learns.</span></p>
-        </div>
-    </section>
-
-    <!-- Story Section -->
-    <section class="section section-purple">
-        <div class="container">
-            <h2>My Arabic Class Story</h2>
-            
-            <div class="story-card fade-in">
-                <p><strong>"You've been studying for less than a year? How are you so good?"</strong></p>
-                
-                <p>My classmates would ask this constantly. They'd struggle to remember words they studied the night before. I never got a single word wrong.</p>
-                
-                <p><strong>My secret?</strong> Flashcards with spaced repetition.</p>
-                
-                <p><strong>The heartbreaking part:</strong> Many classmates developed anxiety and had to take breaks. I couldn't relate - the system managed everything for me.</p>
-                
-                <p><strong>Within one year, native speakers were impressed with my pronunciation.</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Science Section -->
-    <section class="section section-white">
-        <div class="container">
-            <h2>The Science That Changes Everything</h2>
-            
-            <p>When you reread vocabulary lists, information slides through your brain like water through a sieve. But active recall creates permanent neural pathways.</p>
-            
-            <div class="problem-card fade-in">
-                <p><strong>Students who tested themselves retained <span class="stat">50% more information</span> than those who just reread material.</strong></p>
-            </div>
-            
-            <h3>Spaced Repetition</h3>
-            <p>Review words on day 1, day 3, day 7, then after 3 weeks. The forgetting and remembering creates stronger memories.</p>
-            
-            <div class="problem-card fade-in">
-                <p><strong>Spaced repetition improves retention by <span class="stat">200%</span> while reducing study time by <span class="stat">30-50%</span>.</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Teacher Section -->
-    <section class="section section-purple">
-        <div class="container">
-            <h2>Your Teacher Makes You Work 25x Harder</h2>
-            
-            <div class="comparison fade-in">
-                <div class="old-way">
-                    <h3>Traditional Method</h3>
-                    <p><strong>500 repetitions</strong> per word</p>
-                    <p>Exhausting and ineffective</p>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="headline">Stop Forgetting Arabic Vocabulary</h1>
+                    <p class="subheading">The science-backed method that made me sound fluent in one year</p>
+                    
+                    <div class="email-form">
+                        <h3 class="form-title">Get Your Free Arabic Method Guide</h3>
+                        <form id="emailForm">
+                            <input type="email" class="email-input" placeholder="Enter your email address" required>
+                            <button type="submit" class="cta-button">I want my free guide!</button>
+                        </form>
+                        <p class="trust-text">🔒 We will never share your information</p>
+                    </div>
                 </div>
                 
-                <div class="new-way">
-                    <h3>My Method</h3>
-                    <p><strong>15 repetitions</strong> per word</p>
-                    <p>Permanent retention</p>
+                <div class="hero-image">
+                    <div class="ebook-mockup">
+                        <div class="ebook-title">The Arabic Immersion Method</div>
+                        <div class="ebook-subtitle">Stop Forgetting Vocabulary Forever</div>
+                    </div>
                 </div>
             </div>
-            
-            <p style="text-align: center;"><strong>That's 25 times more efficient.</strong> No wonder my classmates got overwhelmed.</p>
         </div>
     </section>
 
-    <!-- Method Section -->
-    <section class="section section-white">
+    <!-- Page 2: Benefits Section -->
+    <section class="benefits-section">
         <div class="container">
-            <h2>Old Way vs New Way</h2>
-            
-            <div class="comparison fade-in">
-                <div class="old-way">
-                    <p><strong>كتاب = book</strong></p>
-                    <p>Isolated words you can't use</p>
-                </div>
+            <div class="benefits-content">
+                <h2 class="benefits-title">What You'll Discover in This Guide</h2>
                 
-                <div class="new-way">
-                    <p><strong>Full Quranic sentences with native audio</strong></p>
-                    <p>Context + pronunciation + usage</p>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🧠</span>
+                        <h3 class="benefit-title">Never Forget Vocabulary Again</h3>
+                        <p class="benefit-description">Learn how to study vocab effectively without endless repetition</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">⚡</span>
+                        <h3 class="benefit-title">Understand Islamic Texts Faster</h3>
+                        <p class="benefit-description">Start comprehending Islamic lectures, Quran recitation, and scholarly content</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">💪</span>
+                        <h3 class="benefit-title">Finally Get Over Your Fear of Learning Arabic</h3>
+                        <p class="benefit-description">Real case studies + the science of learning that builds true confidence</p>
+                    </div>
                 </div>
-            </div>
-            
-            <p>This is how I went from sounding like a textbook to sounding natural.</p>
-        </div>
-    </section>
 
-    <!-- Benefits Section -->
-    <section class="section section-white">
-        <div class="container">
-            <h2>What You Get (Free)</h2>
-            
-            <div class="benefits-grid fade-in">
-                <div class="benefit-card">Pre-made cards from Quranic verses</div>
-                <div class="benefit-card">Native Arabic audio</div>
-                <div class="benefit-card">Smart spaced repetition</div>
-                <div class="benefit-card">Progress tracking</div>
-                <div class="benefit-card">15 minutes daily</div>
-                <div class="benefit-card">Zero setup required</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Finally Remember Arabic?</h2>
-            <p>Join Arabic students who stopped forgetting and started understanding.</p>
-            
-            <div class="form-wrapper">
-                <div class="form-title">Get Free Access</div>
-                <div class="form-subtitle">Weekly insights on mastering Arabic</div>
-                
-                <iframe src="https://ummmuhajaahid.substack.com/embed" 
-                        width="100%" 
-                        height="240" 
-                        class="substack-embed" 
-                        frameborder="0" 
-                        scrolling="no">
-                </iframe>
+                <div class="final-cta">
+                    <h3>Ready to Transform Your Arabic Learning?</h3>
+                    <button class="final-cta-button" onclick="document.querySelector('.hero-section').scrollIntoView()">Get Your Free Guide Now</button>
+                </div>
             </div>
         </div>
     </section>
 
     <script>
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add hover effects
-        document.querySelectorAll('.problem-card, .benefit-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-8px) scale(1.02)';
-            });
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.querySelector('.email-input').value;
             
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
+            // Here you'll integrate with ConvertKit or your email service
+            alert('Thank you! Check your email for the download link.');
+            
+            // Log for testing
+            console.log('Email captured:', email);
         });
     </script>
 </body>
