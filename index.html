@@ -437,9 +437,47 @@
             }
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+        /* Scroll Arrow */
+        .scroll-arrow {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .scroll-arrow:hover {
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        .arrow-icon {
+            font-size: 2rem;
+            color: #8b5cf6;
+            background: #ffffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            animation: bounce 2s infinite;
+            border: 2px solid #8b5cf6;
+            font-weight: bold;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
     </style>
 </head>
@@ -483,31 +521,31 @@
                 
                 <div class="benefits-grid">
                     <div class="benefit-card">
-                        <span class="benefit-icon">🔬</span>
+                        <span class="benefit-icon">😰</span>
                         <div class="benefit-number">One</div>
-                        <h3 class="benefit-title">Master the Memory Science</h3>
-                        <p class="benefit-description">Discover why spaced repetition + immersion gets results in months, not years, based on cognitive research</p>
+                        <h3 class="benefit-title">Why You're Learning Arabic the Hard Way</h3>
+                        <p class="benefit-description">Discover the hidden mistakes that keep you stuck in endless grammar rules and forgotten vocabulary</p>
                     </div>
                     
                     <div class="benefit-card">
                         <span class="benefit-icon">🧠</span>
                         <div class="benefit-number">Two</div>
-                        <h3 class="benefit-title">Make Vocabulary Stick Forever</h3>
-                        <p class="benefit-description">Learn the evidence-based techniques that make forgetting Arabic words literally impossible</p>
+                        <h3 class="benefit-title">The Memory Secret Arabic Teachers Don't Know</h3>
+                        <p class="benefit-description">Why your brain forgets vocabulary overnight and the simple fix that makes words stick permanently</p>
                     </div>
                     
                     <div class="benefit-card">
                         <span class="benefit-icon">📖</span>
                         <div class="benefit-number">Three</div>
-                        <h3 class="benefit-title">Transform Islamic Content Into Fluency</h3>
-                        <p class="benefit-description">How to use Quranic verses and Islamic lectures as your immersion material instead of boring textbooks</p>
+                        <h3 class="benefit-title">Turn Islamic Content Into Your Advantage</h3>
+                        <p class="benefit-description">How to learn Arabic naturally through content you actually care about instead of boring textbooks</p>
                     </div>
 
                     <div class="benefit-card">
                         <span class="benefit-icon">💪</span>
                         <div class="benefit-number">Four</div>
-                        <h3 class="benefit-title">Build Unshakeable Confidence</h3>
-                        <p class="benefit-description">Overcome overwhelm and fear with proven mindset techniques that turn you into a fearless Arabic learner</p>
+                        <h3 class="benefit-title">From Overwhelmed to Confident in Weeks</h3>
+                        <p class="benefit-description">The mindset shifts that eliminate Arabic anxiety and turn you into an unstoppable learner</p>
                     </div>
                 </div>
 
