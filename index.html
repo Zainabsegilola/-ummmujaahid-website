@@ -25,12 +25,12 @@
             padding: 0 0.5rem;
         }
 
-        /* Hero Section with space for arrow */
+        /* Hero Section with better arrow positioning */
         .hero-section {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 4rem 0 8rem;
+            padding: 4rem 0 6rem;
             position: relative;
         }
 
@@ -244,6 +244,7 @@
             gap: 2rem;
             margin-bottom: 4rem;
             max-width: 1000px;
+            align-items: start;
         }
 
         .benefit-card {
@@ -262,12 +263,20 @@
             min-height: 280px;
         }
 
+        .benefits-grid .benefit-card:nth-child(1) {
+            margin-top: 0;
+        }
+
         .benefits-grid .benefit-card:nth-child(2) {
-            margin-top: 3rem;
+            margin-top: 4rem;
+        }
+
+        .benefits-grid .benefit-card:nth-child(3) {
+            margin-top: 0;
         }
 
         .benefits-grid .benefit-card:nth-child(4) {
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
         .benefit-card:nth-child(1) { animation-delay: 0.1s; }
@@ -380,10 +389,10 @@
             transform: translateY(-2px);
         }
 
-        /* Page Arrow (positioned below content) */
+        /* Page Arrow (positioned to stay in view) */
         .page-arrow {
             position: absolute;
-            bottom: 3rem;
+            bottom: 1rem;
             left: 50%;
             transform: translateX(-50%);
             cursor: pointer;
@@ -401,24 +410,42 @@
             font-size: 2rem;
             color: #000000;
             font-weight: 300;
-            animation: bounceDown 2s infinite;
+            animation: pulseDown 1.5s ease-in-out infinite;
             transition: all 0.3s ease;
         }
 
         .page-arrow:hover .arrow-icon {
-            animation-duration: 0.5s;
-            transform: translateY(3px);
+            animation: fastPulseDown 0.6s ease-in-out infinite;
+            color: #333333;
         }
 
-        @keyframes bounceDown {
-            0%, 20%, 50%, 80%, 100% {
+        @keyframes pulseDown {
+            0% {
                 transform: translateY(0);
+                opacity: 1;
             }
-            25% {
+            50% {
                 transform: translateY(8px);
+                opacity: 0.7;
             }
-            45% {
-                transform: translateY(4px);
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fastPulseDown {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(10px);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
 
@@ -518,7 +545,9 @@
                 gap: 1.5rem;
             }
 
+            .benefits-grid .benefit-card:nth-child(1),
             .benefits-grid .benefit-card:nth-child(2),
+            .benefits-grid .benefit-card:nth-child(3),
             .benefits-grid .benefit-card:nth-child(4) {
                 margin-top: 0;
             }
