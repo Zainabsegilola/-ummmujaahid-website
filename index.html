@@ -522,7 +522,7 @@
             
             rotatingElement.textContent = currentText;
             
-            let typingSpeed = isDeleting ? 30 : 80; // Faster deleting, slower typing
+            let typingSpeed = isDeleting ? 15 : 40; // Much faster: 15ms deleting, 40ms typing
             
             if (!isDeleting && currentText === fullText) {
                 // Finished typing, pause then start deleting
