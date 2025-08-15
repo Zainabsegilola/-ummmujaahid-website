@@ -129,22 +129,21 @@
         }
 
         .book-card {
-            position: fixed;
-            top: calc(65vh + 22.5vh);
+            position: absolute;
             left: 120px;
             width: 45%;
-            background: #111111;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-            z-index: 500;
+            background: #000000;
+            padding: 40px;
+            margin-top: 22.5vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .book-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
+            width: auto;
+            height: 250px;
+            object-fit: contain;
             margin-bottom: 20px;
         }
 
@@ -199,13 +198,6 @@
     <img src="newlogo.png" alt="Logo" class="logo">
     <div class="header-text">Making Mujaahid</div>
     
-    <div class="book-card">
-        <img src="White Business Ebook Cover.png" alt="Purpose & Profit Book Cover" class="book-image">
-        <h3 class="book-title">Purpose & Profit</h3>
-        <p class="book-description">Transform your relationship with money and discover your life's work. Download the PDF for free or get the paperback on Amazon.</p>
-        <button class="book-button">Get The Book</button>
-    </div>
-    
     <div class="main-content">
         <h3 class="eyebrow">UMM MUJAAHID</h3>
         <h1 class="main-headline">Understand the Quran. Rewire Your Brain.<br>Master Your Nafs.</h1>
@@ -217,6 +209,13 @@
         <h3 class="resources-eyebrow">RESOURCES</h3>
         <h1 class="resources-headline">Join The Top 1%</h1>
         <h4 class="resources-subtext">Discover the science behind language acquisition and<br>actually learn Arabic</h4>
+    </div>
+
+    <div class="book-card">
+        <img src="White Business Ebook Cover.png" alt="Purpose & Profit Book Cover" class="book-image">
+        <h3 class="book-title">Purpose & Profit</h3>
+        <p class="book-description">Transform your relationship with money and discover your life's work. Download the PDF for free or get the paperback on Amazon.</p>
+        <button class="book-button">Get The Book</button>
     </div>
 </body>
 </html>
