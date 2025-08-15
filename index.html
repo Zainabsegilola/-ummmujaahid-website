@@ -128,6 +128,62 @@
             opacity: 0.9;
         }
 
+        .book-card {
+            position: fixed;
+            top: calc(65vh + 22.5vh);
+            left: 120px;
+            width: 45%;
+            background: #111111;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+            z-index: 500;
+        }
+
+        .book-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .book-description {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #ffffff;
+            opacity: 0.9;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .book-button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            background: #8b5cf6;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .book-button:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 768px) {
             .logo {
                 left: 40px;
@@ -142,6 +198,13 @@
 <body>
     <img src="newlogo.png" alt="Logo" class="logo">
     <div class="header-text">Making Mujaahid</div>
+    
+    <div class="book-card">
+        <img src="White Business Ebook Cover.png" alt="Purpose & Profit Book Cover" class="book-image">
+        <h3 class="book-title">Purpose & Profit</h3>
+        <p class="book-description">Transform your relationship with money and discover your life's work. Download the PDF for free or get the paperback on Amazon.</p>
+        <button class="book-button">Get The Book</button>
+    </div>
     
     <div class="main-content">
         <h3 class="eyebrow">UMM MUJAAHID</h3>
